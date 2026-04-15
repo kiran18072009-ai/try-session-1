@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flask Session & SQL</title>
+    <style>
+        body { font-family: sans-serif; max-width: 500px; margin: 50px auto; line-height: 1.6; }
+        .session-box { background: #e3f2fd; padding: 10px; border-radius: 5px; }
+        .note-item { border-bottom: 1px solid #ddd; padding: 5px 0; }
+    </style>
+</head>
+<body>
+
+    <h2>Single Page Flask App</h2>
+
+    <div class="session-box">
+        <strong>Session Data:</strong> You have refreshed this page <b>{{ visits }}</b> times in this session.
+    </div>
+
+    <h3>Add a Global Note (SQLite)</h3>
+    <form method="POST">
+        <input type="text" name="note" placeholder="Write something..." required>
+        <button type="submit">Save to DB</button>
+    </form>
+
+    <h3>Notes from Database:</h3>
+    <div>
+        {% for note in notes %}
+            <div class="note-item">{{ note[0] }}</div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
